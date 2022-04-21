@@ -21,8 +21,7 @@ public class Entornos {
  double[] notas=null; //este es el array de doubles donde se va a guardar las notas. Todavía no sé cuantas notas va a introducir el usuario
         
         System.out.println("¿Cuántas notas quieres introducir?");
-        Scanner sc = new Scanner(System.in);
-        int numeroNotas = sc.nextInt();
+        numeroNotas = sc.nextInt();
         
         //controlar si el num de notas introducido es correcto...
         // if (numeroNotas .......
@@ -87,6 +86,8 @@ public class Entornos {
         System.out.println("Mensaje del profesor: "+calificaciones[mediaEntera - 1]);
         
     }
+    public static final Scanner sc = new Scanner(System.in);
+    public static int numeroNotas;
     
     /**
      * calcularMedia
