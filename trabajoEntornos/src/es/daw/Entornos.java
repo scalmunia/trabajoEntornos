@@ -23,36 +23,14 @@ public class Entornos {
         System.out.println("¿Cuántas notas quieres introducir?");
         numeroNotas = sc.nextInt();
         
-        //controlar si el num de notas introducido es correcto...
-        // if (numeroNotas .......
+
         
         // inicializo el array
         notas= new double[numeroNotas];
         
-        //bucle para pedir al usuario tantas nota como haya indicado
-        for (int i=0; i < numeroNotas; i++){
-            
-            boolean notaIncorrecta = true;
-            
-            do{
-                System.out.println("Introduce la nota ("+(i+1)+"): ");
-                
-                double nota = sc.nextDouble();
-                
-                //comprobando que la nota va entre 0 y 10
-                if (nota < 0 || nota > 10)
-                    System.out.println("Has introducido una nota incorrecta. Debe ser entre 0 y 10 (incluidos)");
-                else{
-                    notas[i] = nota;
-                    notaIncorrecta = false;
-                }
-            }while(notaIncorrecta);
-            
-        }
+        introducirNotas(notas);
         
-        //Ya tengo el array de notas inicializado con las notas bien....
-        
-        // ----------------------------------------------
+
         double media = 0;
         
         media = calcularMedia(notas);     
@@ -85,6 +63,29 @@ public class Entornos {
         
         System.out.println("Mensaje del profesor: "+calificaciones[mediaEntera - 1]);
         
+    }
+
+    public static void introducirNotas(double[] notas) {
+        //bucle para pedir al usuario tantas nota como haya indicado
+        for (int i=0; i < numeroNotas; i++){
+            
+            boolean notaIncorrecta = true;
+            
+            do{
+                System.out.println("Introduce la nota ("+(i+1)+"): ");
+                
+                double nota = sc.nextDouble();
+                
+                //comprobando que la nota va entre 0 y 10
+                if (nota < 0 || nota > 10)
+                    System.out.println("Has introducido una nota incorrecta. Debe ser entre 0 y 10 (incluidos)");
+                else{
+                    notas[i] = nota;
+                    notaIncorrecta = false;
+                }
+            }while(notaIncorrecta);
+            
+        }
     }
     public static final Scanner sc = new Scanner(System.in);
     public static int numeroNotas;
