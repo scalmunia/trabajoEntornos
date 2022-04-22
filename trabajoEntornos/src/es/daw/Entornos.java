@@ -26,9 +26,7 @@ public class Entornos {
 
         
         // inicializo el array
-        notas= new double[numeroNotas];
-        
-        introducirNotas(notas);
+        notas= introducirNotas(numeroNotas);
         
 
         double media = 0;
@@ -65,7 +63,8 @@ public class Entornos {
         
     }
 
-    public static void introducirNotas(double[] notas) {
+    public static double[] introducirNotas(int numNotas) {
+        double[] copiaNotas = new double[numNotas];
         //bucle para pedir al usuario tantas nota como haya indicado
         for (int i=0; i < numeroNotas; i++){
             
@@ -80,12 +79,13 @@ public class Entornos {
                 if (nota < 0 || nota > 10)
                     System.out.println("Has introducido una nota incorrecta. Debe ser entre 0 y 10 (incluidos)");
                 else{
-                    notas[i] = nota;
+                    copiaNotas[i] = nota;
                     notaIncorrecta = false;
                 }
             }while(notaIncorrecta);
             
         }
+        return copiaNotas;
     }
     public static final Scanner sc = new Scanner(System.in);
     public static int numeroNotas;
